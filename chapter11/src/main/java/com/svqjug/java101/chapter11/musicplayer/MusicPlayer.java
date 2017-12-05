@@ -16,9 +16,9 @@ public interface MusicPlayer extends AutoCloseable {
 
 	void rewind();
 
-	boolean isSongLoaded();
+	Boolean isSongLoaded();
 
-	boolean isSongPlayed();
+	Boolean isSongPlayed();
 
 	@Override
 	void close();

@@ -8,7 +8,7 @@ public class Mp3MusicPlayer implements MusicPlayer, AutoCloseable {
 
 	private static final char FILE_EXTENSION_SEPARATOR = '.';
 	private static final String MP3_FILE_EXTENSION = "mp3";
-	private boolean songLoaded = false;
+	private Boolean songLoaded = false;
 	private String songPath = null;
 	private boolean songPlayed = false;
 
@@ -61,7 +61,7 @@ public class Mp3MusicPlayer implements MusicPlayer, AutoCloseable {
 	}
 
 	@Override
-	public boolean isSongLoaded() {
+	public Boolean isSongLoaded() {
 		return songLoaded;
 	}
 
@@ -71,7 +71,7 @@ public class Mp3MusicPlayer implements MusicPlayer, AutoCloseable {
 	}
 
 	@Override
-	public boolean isSongPlayed() {
+	public Boolean isSongPlayed() {
 		return songPlayed;
 	}
 
