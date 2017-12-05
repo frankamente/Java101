@@ -65,8 +65,16 @@ public class Mp3MusicPlayerTests {
 		final MusicPlayer mp3Player = new Mp3MusicPlayer();
 		// act
 
-		// assert
-		assertThat(mp3Player.isSongLoaded(), is(false));
-		assertThat(mp3Player.isSongPlayed(), is(false));
+	}
+
+	@Test
+	public void givenPlayWithOggSongShallNotPlayItWithAutoCloseable() throws FileNotFoundException {
+		// arrange
+		final String songPath = "test.ogg";
+		// act
+		try (final MusicPlayer mp3Player = new Mp3MusicPlayer()) {
+			mp3Player.loadSong(songPath);
+			mp3Player.play();
+		}
 	}
 }
