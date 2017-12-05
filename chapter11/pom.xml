@@ -7,8 +7,8 @@
     <artifactId>java101</artifactId>
     <version>1.0-SNAPSHOT</version>
   </parent>
-  <artifactId>chapter8</artifactId>
-  <name>chapter8</name>
+  <artifactId>chapter11</artifactId>
+  <name>chapter11</name>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <java.version>1.8</java.version>
