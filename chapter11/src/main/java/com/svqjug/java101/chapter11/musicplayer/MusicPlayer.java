@@ -1,25 +1,16 @@
 package com.svqjug.java101.chapter11.musicplayer;
 
-import java.io.FileNotFoundException;
+import com.svqjug.java101.chapter11.medialibrary.Playlist;
 
-public interface MusicPlayer extends AutoCloseable {
+public class MusicPlayer {
 
-	void loadSong(String filePath) throws FileNotFoundException;
+	private final Playlist mediaLibrary;
 
-	void unloadSong();
+	public MusicPlayer() {
+		mediaLibrary = Playlist.MY_PLAYLIST;
+	}
 
-	void play();
+	public void play(String songName) {
 
-	void stop();
-
-	void pause();
-
-	void rewind();
-
-	Boolean isSongLoaded();
-
-	Boolean isSongPlayed();
-
-	@Override
-	void close();
+	}
 }
