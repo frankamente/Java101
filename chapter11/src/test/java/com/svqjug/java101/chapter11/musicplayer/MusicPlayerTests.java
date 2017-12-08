@@ -1,7 +1,8 @@
 package com.svqjug.java101.chapter11.musicplayer;
 
-import com.svqjug.java101.chapter11.medialibrary.Playlist;
-import com.svqjug.java101.chapter11.medialibrary.Song;
+import com.svqjug.java101.chapter11.playlist.Playlist;
+import com.svqjug.java101.chapter11.playlist.PlaylistException;
+import com.svqjug.java101.chapter11.playlist.Song;
 import org.junit.Test;
 
 public class MusicPlayerTests {
@@ -37,8 +38,8 @@ public class MusicPlayerTests {
 		musicPlayer.getCurrentSong().equals(testSong);
 	}
 
-    @Test(expected = MusicPlayerException.class)
-    public void givenNotExistingIndexSongShallThrowMusicPlayerException() {
+    @Test(expected =  IndexOutOfBoundsException.class)
+    public void givenNotExistingIndexSongShallThrowIndexOutOfBoundsException() {
         // Arrange
         final MusicPlayer musicPlayer = new MusicPlayer();
         final int songPosition = 1;
@@ -46,11 +47,12 @@ public class MusicPlayerTests {
         musicPlayer.play(songPosition);
     }
 
-    @Test(expected = PlaylistException.class)
+    @Test(expected = InvalidOperationException.class)
     public void givenNoSongPreviousShallThrowPlaylistException() {
         // Arrange
         final MusicPlayer musicPlayer = new MusicPlayer();
         // Act
         musicPlayer.previous();
     }
+
 }

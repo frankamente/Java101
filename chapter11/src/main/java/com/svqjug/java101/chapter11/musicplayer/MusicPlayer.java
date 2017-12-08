@@ -1,7 +1,7 @@
 package com.svqjug.java101.chapter11.musicplayer;
 
-import com.svqjug.java101.chapter11.medialibrary.Playlist;
-import com.svqjug.java101.chapter11.medialibrary.Song;
+import com.svqjug.java101.chapter11.playlist.Playlist;
+import com.svqjug.java101.chapter11.playlist.Song;
 
 public class MusicPlayer {
 
@@ -21,7 +21,7 @@ public class MusicPlayer {
 	}
 
 	public void play(int songPosition) {
-
+        
 	}
 
 	public void previous() {

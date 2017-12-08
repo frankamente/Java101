@@ -1,4 +1,4 @@
-package com.svqjug.java101.chapter11.medialibrary;
+package com.svqjug.java101.chapter11.playlist;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;

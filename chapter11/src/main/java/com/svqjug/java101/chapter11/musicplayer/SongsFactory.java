@@ -1,6 +1,6 @@
 package com.svqjug.java101.chapter11.musicplayer;
 
-import com.svqjug.java101.chapter11.medialibrary.Song;
+import com.svqjug.java101.chapter11.playlist.Song;
 
 import java.util.HashSet;
 import java.util.Random;
