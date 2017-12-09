@@ -32,6 +32,14 @@ public class Song {
         System.out.println("Playing " + this);
     }
 
+    public void stop() {
+        System.out.println("Stopped " + this);
+    }
+
+    public void pause() {
+        System.out.println("Paused " + this);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

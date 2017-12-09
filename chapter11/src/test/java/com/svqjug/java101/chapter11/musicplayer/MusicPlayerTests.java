@@ -5,6 +5,10 @@ import com.svqjug.java101.chapter11.playlist.PlaylistException;
 import com.svqjug.java101.chapter11.playlist.Song;
 import org.junit.Test;
 
+import static org.hamcrest.core.Is.is;
+import static org.hamcrest.core.IsNull.nullValue;
+import static org.junit.Assert.assertThat;
+
 public class MusicPlayerTests {
 
 	@Test(expected = MusicPlayerException.class)
@@ -55,4 +59,16 @@ public class MusicPlayerTests {
         musicPlayer.previous();
     }
 
+    @Test(expected = InvalidOperationException.class)
+    public void givenLastSongNextShallPutCurrentSongAsNull() {
+        // Arrange
+        final MusicPlayer musicPlayer = new MusicPlayer();
+        Song testSong = SongsFactory.getSong();
+        Playlist.MY_PLAYLIST.add(testSong);
+        musicPlayer.play(testSong.getName());
+        // Act
+        musicPlayer.next();
+        //Assert
+        assertThat(musicPlayer.getCurrentSong(), is(nullValue()));
+    }
 }

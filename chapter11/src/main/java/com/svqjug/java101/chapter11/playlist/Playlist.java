@@ -24,6 +24,10 @@ public enum Playlist {
         return songList.get(index);
     }
 
+    public int position(Song song) {
+        return songList.indexOf(song);
+    }
+
     private boolean exists(final String songName) {
         return songList.stream().anyMatch(song -> song.getName().equalsIgnoreCase(songName));
     }
