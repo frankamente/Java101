@@ -59,8 +59,8 @@ public class MusicPlayerTests {
         musicPlayer.previous();
     }
 
-    @Test(expected = InvalidOperationException.class)
-    public void givenLastSongNextShallPutCurrentSongAsNull() {
+    @Test
+    public void givenLastSongNextShallSetCurrentSongAsNull() {
         // Arrange
         final MusicPlayer musicPlayer = new MusicPlayer();
         Song testSong = SongsFactory.getSong();
@@ -70,5 +70,25 @@ public class MusicPlayerTests {
         musicPlayer.next();
         //Assert
         assertThat(musicPlayer.getCurrentSong(), is(nullValue()));
+    }
+
+    @Test(expected = MusicPlayerException.class)
+    public void givenNoSongPauseShallThrowMusicPlayerException() {
+        // Arrange
+        final MusicPlayer musicPlayer = new MusicPlayer();
+        // Act
+        musicPlayer.pause();
+    }
+
+    @Test(expected = InvalidOperationException.class)
+    public void givenPausedSongPauseShallThrowInvalidOperationException() {
+        //Arrange
+	    final MusicPlayer musicPlayer = new MusicPlayer();
+        Song testSong = SongsFactory.getSong();
+        Playlist.MY_PLAYLIST.add(testSong);
+        musicPlayer.play(testSong.getName());
+        musicPlayer.pause();
+        //Act
+        musicPlayer.pause();
     }
 }

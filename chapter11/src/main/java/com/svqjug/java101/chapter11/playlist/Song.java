@@ -10,10 +10,13 @@ public class Song {
 
     private final String name;
 
+    private boolean paused;
+
     public Song(String artist, String album, String name) {
         this.artist = artist;
         this.album = album;
         this.name = name;
+        this.paused = false;
     }
 
     public String getArtist() {
@@ -28,6 +31,10 @@ public class Song {
         return name;
     }
 
+    public boolean isPaused() {
+        return paused;
+    }
+
     public void play() {
         System.out.println("Playing " + this);
     }
@@ -37,7 +44,15 @@ public class Song {
     }
 
     public void pause() {
-        System.out.println("Paused " + this);
+        if (!paused) {
+            System.out.println("Paused " + this);
+        }
+    }
+
+    public void resume() {
+        if (paused) {
+            System.out.println("Resuming " + this);
+        }
     }
 
     @Override
