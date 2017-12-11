@@ -7,6 +7,7 @@ public class MusicPlayer {
 
 	private final Playlist playlist;
 	private Song currentSong;
+	private final boolean repeat = false;
 
 	public MusicPlayer() {
 		playlist = Playlist.MY_PLAYLIST;
@@ -45,6 +46,16 @@ public class MusicPlayer {
 
 	public void shuffle() {
 		// Invoke shuffle on playlist
+
+	}
+
+	public boolean isRepeat() {
+		return repeat;
+	}
+
+	public void repeat(Song testSong) throws MusicPlayerSongException {
+		// Check if song exists in playlist, then set repeat as true, set the song as
+		// current song and play it
 
 	}
 }

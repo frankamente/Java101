@@ -109,4 +109,19 @@ public class MusicPlayerTests {
 		// Act
 		musicPlayer.shuffle();
 	}
+
+	@Test
+	public void givenRepeatWithEmptyPlaylistShallThrowExceptionWithRepeatedSong() {
+		// Arrange
+		final MusicPlayer musicPlayer = new MusicPlayer();
+		final Song testSong = SongsFactory.getSong();
+
+		// Act
+		try {
+			musicPlayer.repeat(testSong);
+		} catch (final MusicPlayerSongException e) {
+			// Assert
+			assertThat(e.getSong(), is(testSong));
+		}
+	}
 }
