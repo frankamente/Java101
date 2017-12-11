@@ -4,78 +4,79 @@ import java.util.Objects;
 
 public class Song {
 
-    private final String artist;
+	private final String artist;
 
-    private final String album;
+	private final String album;
 
-    private final String name;
+	private final String name;
 
-    private boolean paused;
+	private boolean paused;
 
-    public Song(String artist, String album, String name) {
-        this.artist = artist;
-        this.album = album;
-        this.name = name;
-        this.paused = false;
-    }
+	public Song(String artist, String album, String name) {
+		this.artist = artist;
+		this.album = album;
+		this.name = name;
+		paused = false;
+	}
 
-    public String getArtist() {
-        return artist;
-    }
+	public String getArtist() {
+		return artist;
+	}
 
-    public String getAlbum() {
-        return album;
-    }
+	public String getAlbum() {
+		return album;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public boolean isPaused() {
-        return paused;
-    }
+	public boolean isPaused() {
+		return paused;
+	}
 
-    public void play() {
-        System.out.println("Playing " + this);
-    }
+	public void play() {
+		System.out.println("Playing " + this);
+	}
 
-    public void stop() {
-        System.out.println("Stopped " + this);
-    }
+	public void stop() {
+		System.out.println("Stopped " + this);
+	}
 
-    public void pause() {
-        if (!paused) {
-            System.out.println("Paused " + this);
-        }
-    }
+	public void pause() {
+		if (!paused) {
+			System.out.println("Paused " + this);
+			paused = true;
+		}
+	}
 
-    public void resume() {
-        if (paused) {
-            System.out.println("Resuming " + this);
-        }
-    }
+	public void resume() {
+		if (paused) {
+			System.out.println("Resuming " + this);
+			paused = false;
+		}
+	}
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Song song = (Song) o;
-        return Objects.equals(artist, song.artist) &&
-                Objects.equals(album, song.album) &&
-                Objects.equals(name, song.name);
-    }
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) {
+			return true;
+		}
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
+		final Song song = (Song) o;
+		return Objects.equals(artist, song.artist) && Objects.equals(album, song.album)
+				&& Objects.equals(name, song.name);
+	}
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(artist, album, name);
-    }
+	@Override
+	public int hashCode() {
+		return Objects.hash(artist, album, name);
+	}
 
-    @Override
-    public String toString() {
-        return "Song{" +
-                "artist='" + artist + '\'' +
-                ", album='" + album + '\'' +
-                ", name='" + name + '\'' +
-                '}';
-    }
+	@Override
+	public String toString() {
+		return "Song{" + "artist='" + artist + '\'' + ", album='" + album + '\'' + ", name='" + name + '\'' + '}';
+	}
 }
