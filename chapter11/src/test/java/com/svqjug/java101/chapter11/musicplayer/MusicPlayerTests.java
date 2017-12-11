@@ -12,7 +12,7 @@ import com.svqjug.java101.chapter11.playlist.Song;
 public class MusicPlayerTests {
 
 	@Test(expected = MusicPlayerException.class)
-	public void givenNullSongShallThrowMusicPlayerException() {
+	public void givenNullSongShallThrowMusicPlayerException() throws MusicPlayerException {
 		// Arrange
 		final MusicPlayer musicPlayer = new MusicPlayer();
 
@@ -21,16 +21,16 @@ public class MusicPlayerTests {
 	}
 
 	@Test(expected = MusicPlayerException.class)
-	public void givenNotExistingSongShallThrowMusicPlayerException() {
+	public void givenNotExistingSongShallThrowMusicPlayerException() throws MusicPlayerException {
 		// Arrange
 		final MusicPlayer musicPlayer = new MusicPlayer();
 		final String songName = "test";
 		// Act
-		musicPlayer.play("test");
+		musicPlayer.play(songName);
 	}
 
 	@Test
-	public void givenExistingSongShallPlayIt() {
+	public void givenExistingSongShallPlayIt() throws MusicPlayerException {
 		// Arrange
 		final MusicPlayer musicPlayer = new MusicPlayer();
 		final Song testSong = SongsFactory.getSong();
@@ -60,7 +60,7 @@ public class MusicPlayerTests {
 	}
 
 	@Test
-	public void givenLastSongNextShallSetCurrentSongAsNull() {
+	public void givenLastSongNextShallSetCurrentSongAsNull() throws MusicPlayerException {
 		// Arrange
 		final MusicPlayer musicPlayer = new MusicPlayer();
 		final Song testSong = SongsFactory.getSong();
@@ -81,7 +81,7 @@ public class MusicPlayerTests {
 	}
 
 	@Test(expected = InvalidOperationException.class)
-	public void givenPausedSongPauseShallThrowInvalidOperationException() {
+	public void givenPausedSongPauseShallThrowInvalidOperationException() throws MusicPlayerException {
 		// Arrange
 		final MusicPlayer musicPlayer = new MusicPlayer();
 		final Song testSong = SongsFactory.getSong();

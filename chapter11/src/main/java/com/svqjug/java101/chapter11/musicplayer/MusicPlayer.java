@@ -17,8 +17,12 @@ public class MusicPlayer {
 		return currentSong;
 	}
 
-	public void play(String songName) {
+	public void play(String songName) throws MusicPlayerException {
 		// Look for the song in the playlist, set it as current song and play it
+		if (songName == null) {
+			throw new MusicPlayerException("Can't play null song");
+
+		}
 	}
 
 	public void play(int songPosition) {
