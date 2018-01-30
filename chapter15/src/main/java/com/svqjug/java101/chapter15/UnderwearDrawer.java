@@ -1,5 +1,5 @@
 package com.svqjug.java101.chapter15;
 
-public class UnderwearDrawer {
+public class UnderwearDrawer implements Drawer {
 
 }
