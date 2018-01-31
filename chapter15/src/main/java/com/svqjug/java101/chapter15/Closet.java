@@ -1,11 +1,11 @@
 package com.svqjug.java101.chapter15;
 
-public class Wardrobe {
+public class Closet {
 
 	private Bar bar;
 	private ShoeBoxes shoeBoxes;
 
-	public Wardrobe() {
+	public Closet() {
 		bar = new Bar();
 		setShoeBoxes(new ShoeBoxes());
 	}
