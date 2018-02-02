@@ -14,7 +14,7 @@ public class ShoeBoxesTests {
 		// Act
 
 		// Assert
-		assertThat(wardrobe.getShoeBoxes().size(), is(0));
+		assertThat(wardrobe.getNumberOfShoeBoxes(), is(0));
 	}
 
 	@Test
@@ -25,7 +25,7 @@ public class ShoeBoxesTests {
 		// Act
 		wardrobe.add(box);
 		// Assert
-		assertThat(wardrobe.getShoeBoxes().size(), is(1));
+		assertThat(wardrobe.getNumberOfShoeBoxes(), is(1));
 		assertThat(wardrobe.contains(box), is(true));
 	}
 
@@ -38,7 +38,7 @@ public class ShoeBoxesTests {
 		wardrobe.add(box);
 		wardrobe.add(box);
 		// Assert
-		assertThat(wardrobe.getShoeBoxes().size(), is(1));
+		assertThat(wardrobe.getNumberOfShoeBoxes(), is(1));
 		assertThat(wardrobe.contains(box), is(true));
 	}
 
@@ -52,7 +52,7 @@ public class ShoeBoxesTests {
 		wardrobe.add(nbBox);
 		wardrobe.add(clarksBox);
 		// Assert
-		assertThat(wardrobe.getShoeBoxes().size(), is(2));
+		assertThat(wardrobe.getNumberOfShoeBoxes(), is(2));
 		assertThat(wardrobe.contains(nbBox), is(true));
 		assertThat(wardrobe.contains(clarksBox), is(true));
 	}
@@ -65,7 +65,7 @@ public class ShoeBoxesTests {
 		// Act
 		wardrobe.add(nullBox);
 		// Assert
-		assertThat(wardrobe.getShoeBoxes().size(), is(0));
+		assertThat(wardrobe.getNumberOfShoeBoxes(), is(0));
 		assertThat(wardrobe.contains(nullBox), is(false));
 	}
 
@@ -79,7 +79,7 @@ public class ShoeBoxesTests {
 		wardrobe.add(nb1Box);
 		wardrobe.add(nb2Box);
 		// Assert
-		assertThat(wardrobe.getShoeBoxes().size(), is(1));
+		assertThat(wardrobe.getNumberOfShoeBoxes(), is(1));
 		assertThat(wardrobe.contains(nb1Box), is(true));
 		assertThat(wardrobe.contains(nb2Box), is(true));
 	}
