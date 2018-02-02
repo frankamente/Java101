@@ -10,51 +10,71 @@ public class ShoeBoxesTests {
 	@Test
 	public void givenNewWardrobeShoeBoxesShouldBeEmpty() {
 		// Arrange
-		Wardrobe wardrobe = new Wardrobe();
+		Closet closet = new Closet();
 		// Act
 
 		// Assert
+<<<<<<< HEAD
 		assertThat(wardrobe.getNumberOfShoeBoxes(), is(0));
+=======
+		assertThat(closet.getShoeBoxes().size(), is(0));
+>>>>>>> 497c4161eb01826f41fb09b9bf2d15acaf78c601
 	}
 
 	@Test
 	public void givenOneShoeBoxShouldContainIt() {
 		// Arrange
-		Wardrobe wardrobe = new Wardrobe();
+		Closet closet = new Closet();
 		ShoeBox box = new ShoeBox("NB");
 		// Act
-		wardrobe.add(box);
+		closet.add(box);
 		// Assert
+<<<<<<< HEAD
 		assertThat(wardrobe.getNumberOfShoeBoxes(), is(1));
 		assertThat(wardrobe.contains(box), is(true));
+=======
+		assertThat(closet.getShoeBoxes().size(), is(1));
+		assertThat(closet.contains(box), is(true));
+>>>>>>> 497c4161eb01826f41fb09b9bf2d15acaf78c601
 	}
 
 	@Test
 	public void givenTheSameShoeBoxTwoTimesShouldContainItOnce() {
 		// Arrange
-		Wardrobe wardrobe = new Wardrobe();
+		Closet closet = new Closet();
 		ShoeBox box = new ShoeBox("NB");
 		// Act
-		wardrobe.add(box);
-		wardrobe.add(box);
+		closet.add(box);
+		closet.add(box);
 		// Assert
+<<<<<<< HEAD
 		assertThat(wardrobe.getNumberOfShoeBoxes(), is(1));
 		assertThat(wardrobe.contains(box), is(true));
+=======
+		assertThat(closet.getShoeBoxes().size(), is(1));
+		assertThat(closet.contains(box), is(true));
+>>>>>>> 497c4161eb01826f41fb09b9bf2d15acaf78c601
 	}
 
 	@Test
 	public void givenTwoShoeBoxesShouldContainThem() {
 		// Arrange
-		Wardrobe wardrobe = new Wardrobe();
+		Closet closet = new Closet();
 		ShoeBox nbBox = new ShoeBox("NB");
 		ShoeBox clarksBox = new ShoeBox("Clarks");
 		// Act
-		wardrobe.add(nbBox);
-		wardrobe.add(clarksBox);
+		closet.add(nbBox);
+		closet.add(clarksBox);
 		// Assert
+<<<<<<< HEAD
 		assertThat(wardrobe.getNumberOfShoeBoxes(), is(2));
 		assertThat(wardrobe.contains(nbBox), is(true));
 		assertThat(wardrobe.contains(clarksBox), is(true));
+=======
+		assertThat(closet.getShoeBoxes().size(), is(2));
+		assertThat(closet.contains(nbBox), is(true));
+		assertThat(closet.contains(clarksBox), is(true));
+>>>>>>> 497c4161eb01826f41fb09b9bf2d15acaf78c601
 	}
 
 	@Test

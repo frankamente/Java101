@@ -1,13 +1,19 @@
 package com.svqjug.java101.chapter15;
 
-public class Wardrobe {
+public class Closet {
 
 	private ShoeBoxes shoeBoxes;
 	private ShirtsBar shirtsBar;
 
+<<<<<<< HEAD:chapter15/src/main/java/com/svqjug/java101/chapter15/Wardrobe.java
 	public Wardrobe() {
 		shoeBoxes = new ShoeBoxes();
 		shirtsBar = new ShirtsBar();
+=======
+	public Closet() {
+		bar = new Bar();
+		setShoeBoxes(new ShoeBoxes());
+>>>>>>> 497c4161eb01826f41fb09b9bf2d15acaf78c601:chapter15/src/main/java/com/svqjug/java101/chapter15/Closet.java
 	}
 
 	public void add(ShoeBox box) {
