@@ -68,4 +68,19 @@ public class ShoeBoxesTests {
 		assertThat(wardrobe.getShoeBoxes().size(), is(0));
 		assertThat(wardrobe.contains(nullBox), is(false));
 	}
+
+	@Test
+	public void givenTwoBoxesWithTheSameShoesShouldContainOnlyOne() {
+		// Arrange
+		Wardrobe wardrobe = new Wardrobe();
+		ShoeBox nb1Box = new ShoeBox("NB");
+		ShoeBox nb2Box = new ShoeBox("NB");
+		// Act
+		wardrobe.add(nb1Box);
+		wardrobe.add(nb2Box);
+		// Assert
+		assertThat(wardrobe.getShoeBoxes().size(), is(1));
+		assertThat(wardrobe.contains(nb1Box), is(true));
+		assertThat(wardrobe.contains(nb2Box), is(true));
+	}
 }
