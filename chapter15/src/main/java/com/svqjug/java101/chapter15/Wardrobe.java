@@ -27,7 +27,9 @@ public class Wardrobe {
 	}
 
 	public void add(ShoeBox box) {
-		shoeBoxes.add(box);
+		if (box != null) {
+			shoeBoxes.add(box);
+		}
 	}
 
 	public boolean contains(ShoeBox box) {

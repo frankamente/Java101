@@ -56,4 +56,16 @@ public class ShoeBoxesTests {
 		assertThat(wardrobe.contains(nbBox), is(true));
 		assertThat(wardrobe.contains(clarksBox), is(true));
 	}
+
+	@Test
+	public void givenNullShoeBoxShouldDoNothing() {
+		// Arrange
+		Wardrobe wardrobe = new Wardrobe();
+		ShoeBox nullBox = null;
+		// Act
+		wardrobe.add(nullBox);
+		// Assert
+		assertThat(wardrobe.getShoeBoxes().size(), is(0));
+		assertThat(wardrobe.contains(nullBox), is(false));
+	}
 }
