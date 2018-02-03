@@ -1,19 +1,16 @@
 package com.svqjug.java101.chapter15;
 
+import java.util.NavigableSet;
+import java.util.Optional;
+
 public class Closet {
 
 	private ShoeBoxes shoeBoxes;
 	private ShirtsBar shirtsBar;
 
-<<<<<<< HEAD:chapter15/src/main/java/com/svqjug/java101/chapter15/Wardrobe.java
-	public Wardrobe() {
-		shoeBoxes = new ShoeBoxes();
-		shirtsBar = new ShirtsBar();
-=======
 	public Closet() {
-		bar = new Bar();
-		setShoeBoxes(new ShoeBoxes());
->>>>>>> 497c4161eb01826f41fb09b9bf2d15acaf78c601:chapter15/src/main/java/com/svqjug/java101/chapter15/Closet.java
+        shirtsBar = new ShirtsBar();
+        shoeBoxes = new ShoeBoxes();
 	}
 
 	public void add(ShoeBox box) {
@@ -44,4 +41,16 @@ public class Closet {
 	public int getNumberOfShirts() {
 		return shirtsBar.size();
 	}
+
+    public Optional<Shirt> getFirstShirt() {
+        return shirtsBar.getFirstShirt();
+    }
+
+    public Optional<Shirt> getLastShirt() {
+        return shirtsBar.getLastShirt();
+    }
+
+    public NavigableSet<Shirt> getShirts() {
+        return shirtsBar.getShirts();
+    }
 }

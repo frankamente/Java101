@@ -1,6 +1,8 @@
 package com.svqjug.java101.chapter15;
 
+import java.util.Collections;
 import java.util.NavigableSet;
+import java.util.Optional;
 import java.util.TreeSet;
 
 public class ShirtsBar {
@@ -27,4 +29,23 @@ public class ShirtsBar {
 		}
 	}
 
+    public Optional<Shirt> getFirstShirt() {
+        if (shirts.isEmpty()) {
+            return Optional.empty();
+        } else {
+            return Optional.of(shirts.first());
+        }
+    }
+
+    public Optional<Shirt> getLastShirt() {
+        if (shirts.isEmpty()) {
+            return Optional.empty();
+        } else {
+            return Optional.of(shirts.last());
+        }
+    }
+
+    public NavigableSet<Shirt> getShirts() {
+        return Collections.unmodifiableNavigableSet(shirts);
+    }
 }
