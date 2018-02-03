@@ -7,10 +7,12 @@ public class Closet {
 
 	private ShoeBoxes shoeBoxes;
 	private ShirtsBar shirtsBar;
+    private UnderwearDrawer underwearDrawer;
 
 	public Closet() {
         shirtsBar = new ShirtsBar();
         shoeBoxes = new ShoeBoxes();
+        underwearDrawer = new UnderwearDrawer();
 	}
 
 	public void add(ShoeBox box) {
@@ -52,5 +54,9 @@ public class Closet {
 
     public NavigableSet<Shirt> getShirts() {
         return shirtsBar.getShirts();
+    }
+
+    public int getNumberOfUnderwearPieces() {
+        return underwearDrawer.getNumberOfUnderwearPieces();
     }
 }

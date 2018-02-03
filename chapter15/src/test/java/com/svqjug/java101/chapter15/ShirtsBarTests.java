@@ -10,7 +10,7 @@ import static org.junit.Assert.assertThat;
 public class ShirtsBarTests {
 
 	@Test
-	public void givenNewWardrobeShirtsBarShouldBeEmpty() {
+    public void givenNewClosetShirtsBarShouldBeEmpty() {
 		// Arrange
         Closet closet = new Closet();
 		// Act

@@ -8,7 +8,7 @@ import static org.junit.Assert.assertThat;
 public class ShoeBoxesTests {
 
 	@Test
-	public void givenNewWardrobeShoeBoxesShouldBeEmpty() {
+    public void givenNewClosetShoeBoxesShouldBeEmpty() {
 		// Arrange
 		Closet closet = new Closet();
 		// Act
