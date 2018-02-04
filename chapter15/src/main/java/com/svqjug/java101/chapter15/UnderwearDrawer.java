@@ -17,7 +17,9 @@ public class UnderwearDrawer {
     }
 
     public void add(Underwear underwear) {
-        underwearPieces.add(underwear);
+        if (underwear != null) {
+            underwearPieces.add(underwear);
+        }
     }
 
     public boolean contains(Underwear underwear) {
@@ -33,7 +35,7 @@ public class UnderwearDrawer {
     }
 
     public void add(Underwear underwear, int position) {
-        if (position > -1 && position < underwearPieces.size()) {
+        if (underwear != null && position > -1 && position < underwearPieces.size()) {
             underwearPieces.add(position, underwear);
         }
     }
