@@ -59,4 +59,28 @@ public class Closet {
     public int getNumberOfUnderwearPieces() {
         return underwearDrawer.getNumberOfUnderwearPieces();
     }
+
+    public void add(Underwear underwear) {
+        if (underwear != null) {
+            underwearDrawer.add(underwear);
+        }
+    }
+
+    public boolean contains(Underwear underwear) {
+        return underwearDrawer.contains(underwear);
+    }
+
+    public Optional<Underwear> getUnderwearPiece(int position) {
+        if (position > -1) {
+            return underwearDrawer.get(position);
+        } else {
+            return Optional.empty();
+        }
+    }
+
+    public void add(Underwear thirdOne, int position) {
+        if (thirdOne != null && position > -1) {
+            underwearDrawer.add(thirdOne, position);
+        }
+    }
 }
