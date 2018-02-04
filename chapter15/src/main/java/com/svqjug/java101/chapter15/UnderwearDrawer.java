@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class UnderwearDrawer implements Drawer {
+public class UnderwearDrawer {
 
     private List<Underwear> underwearPieces;
 

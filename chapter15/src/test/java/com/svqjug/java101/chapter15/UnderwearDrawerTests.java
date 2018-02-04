@@ -47,6 +47,31 @@ public class UnderwearDrawerTests {
     }
 
     @Test
+    public void givenOneUnderwearPieceRemoveShouldDeleteIt() {
+        //Arrange
+        Underwear underwear = new Underwear("good ones");
+        //Act
+        underwearDrawer.add(underwear);
+        assertThat(underwearDrawer.getNumberOfUnderwearPieces(), is(1));
+        underwearDrawer.remove(underwear);
+        //Assert
+        assertThat(underwearDrawer.getNumberOfUnderwearPieces(), is(0));
+        assertThat(underwearDrawer.contains(underwear), is(false));
+    }
+
+    @Test
+    public void givenOneUnderwearPieceRemoveNullShouldDoNothing() {
+        //Arrange
+        Underwear underwear = new Underwear("good ones");
+        //Act
+        underwearDrawer.add(underwear);
+        underwearDrawer.remove(null);
+        //Assert
+        assertThat(underwearDrawer.getNumberOfUnderwearPieces(), is(1));
+        assertThat(underwearDrawer.contains(underwear), is(true));
+    }
+
+    @Test
     public void givenTheSameUnderwearPieceTwoTimesRemoveShouldRemoveOne() {
         // Arrange
         Underwear underwear = new Underwear("good ones");
