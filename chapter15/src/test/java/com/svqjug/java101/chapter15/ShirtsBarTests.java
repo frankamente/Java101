@@ -1,5 +1,6 @@
 package com.svqjug.java101.chapter15;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Optional;
@@ -9,89 +10,88 @@ import static org.junit.Assert.assertThat;
 
 public class ShirtsBarTests {
 
+    private ShirtsBar shirtsBar;
+
+    @Before
+    public void setUp() {
+        shirtsBar = new ShirtsBar();
+    }
+
 	@Test
     public void givenNewClosetShirtsBarShouldBeEmpty() {
 		// Arrange
-        Closet closet = new Closet();
 		// Act
-
 		// Assert
-        assertThat(closet.getNumberOfShirts(), is(0));
+        assertThat(shirtsBar.size(), is(0));
 	}
 
 	@Test
 	public void givenOneShirtShouldContainIt() {
 		// Arrange
-        Closet closet = new Closet();
 		Shirt shirt = new Shirt("Oxford");
 		// Act
-        closet.add(shirt);
+        shirtsBar.add(shirt);
 		// Assert
-        assertThat(closet.getNumberOfShirts(), is(1));
-        assertThat(closet.contains(shirt), is(true));
+        assertThat(shirtsBar.size(), is(1));
+        assertThat(shirtsBar.contains(shirt), is(true));
 	}
 
 	@Test
 	public void givenTheSameShirtTwoTimesShouldContainItOnce() {
 		// Arrange
-        Closet closet = new Closet();
 		Shirt shirt = new Shirt("Oxford");
 		// Act
-        closet.add(shirt);
-        closet.add(shirt);
+        shirtsBar.add(shirt);
+        shirtsBar.add(shirt);
 		// Assert
-        assertThat(closet.getNumberOfShirts(), is(1));
-        assertThat(closet.contains(shirt), is(true));
+        assertThat(shirtsBar.size(), is(1));
+        assertThat(shirtsBar.contains(shirt), is(true));
 	}
 
 	@Test
 	public void givenTwoShirtsShouldContainThem() {
 		// Arrange
-        Closet closet = new Closet();
 		Shirt oxfordShirt = new Shirt("Oxford");
 		Shirt slimFitShirt = new Shirt("Slim fit");
 		// Act
-        closet.add(oxfordShirt);
-        closet.add(slimFitShirt);
+        shirtsBar.add(oxfordShirt);
+        shirtsBar.add(slimFitShirt);
 		// Assert
-        assertThat(closet.getNumberOfShirts(), is(2));
-        assertThat(closet.contains(oxfordShirt), is(true));
-        assertThat(closet.contains(slimFitShirt), is(true));
+        assertThat(shirtsBar.size(), is(2));
+        assertThat(shirtsBar.contains(oxfordShirt), is(true));
+        assertThat(shirtsBar.contains(slimFitShirt), is(true));
 	}
 
 	@Test
 	public void givenNullShirtShouldDoNothing() {
 		// Arrange
-        Closet closet = new Closet();
 		Shirt nullShirt = null;
 		// Act
-        closet.add(nullShirt);
+        shirtsBar.add(nullShirt);
 		// Assert
-        assertThat(closet.getNumberOfShirts(), is(0));
-        assertThat(closet.contains(nullShirt), is(false));
+        assertThat(shirtsBar.size(), is(0));
+        assertThat(shirtsBar.contains(nullShirt), is(false));
 	}
 
 	@Test
 	public void givenTwoShirtsWithTheSameDescriptionShouldContainOnlyOne() {
 		// Arrange
-        Closet closet = new Closet();
 		Shirt oxfordShirt1 = new Shirt("Oxford");
 		Shirt oxfordShirt2 = new Shirt("Oxford");
 		// Act
-        closet.add(oxfordShirt1);
-        closet.add(oxfordShirt2);
+        shirtsBar.add(oxfordShirt1);
+        shirtsBar.add(oxfordShirt2);
         // Assert
-        assertThat(closet.getNumberOfShirts(), is(1));
-        assertThat(closet.contains(oxfordShirt1), is(true));
-        assertThat(closet.contains(oxfordShirt2), is(true));
+        assertThat(shirtsBar.size(), is(1));
+        assertThat(shirtsBar.contains(oxfordShirt1), is(true));
+        assertThat(shirtsBar.contains(oxfordShirt2), is(true));
     }
 
     @Test
     public void givenNoShirtFirstShirtShouldBeEmpty() {
         // Arrange
-        Closet closet = new Closet();
         //Act
-        Optional<Shirt> shirt = closet.getFirstShirt();
+        Optional<Shirt> shirt = shirtsBar.getFirstShirt();
         //Assert
         assertThat(shirt.isPresent(), is(false));
     }
@@ -99,9 +99,8 @@ public class ShirtsBarTests {
     @Test
     public void givenNoShirtLastShirtShouldBeEmpty() {
         // Arrange
-        Closet closet = new Closet();
         //Act
-        Optional<Shirt> shirt = closet.getLastShirt();
+        Optional<Shirt> shirt = shirtsBar.getLastShirt();
         //Assert
         assertThat(shirt.isPresent(), is(false));
     }
@@ -109,49 +108,46 @@ public class ShirtsBarTests {
 	@Test
 	public void givenTwoShirtsWithDifferentDescriptionShouldContainThemAlphabeticallyOrdered() {
 		// Arrange
-        Closet closet = new Closet();
 		Shirt slimFitShirt = new Shirt("Slim fit");
 		Shirt oxfordShirt = new Shirt("Oxford");
 		// Act
-        closet.add(slimFitShirt);
-        closet.add(oxfordShirt);
+        shirtsBar.add(slimFitShirt);
+        shirtsBar.add(oxfordShirt);
 		// Assert
-        assertThat(closet.getNumberOfShirts(), is(2));
-        assertThat(closet.contains(slimFitShirt), is(true));
-        assertThat(closet.contains(oxfordShirt), is(true));
-        assertThat(closet.getFirstShirt().get(), is(oxfordShirt));
-        assertThat(closet.getLastShirt().get(), is(slimFitShirt));
+        assertThat(shirtsBar.size(), is(2));
+        assertThat(shirtsBar.contains(slimFitShirt), is(true));
+        assertThat(shirtsBar.contains(oxfordShirt), is(true));
+        assertThat(shirtsBar.getFirstShirt().get(), is(oxfordShirt));
+        assertThat(shirtsBar.getLastShirt().get(), is(slimFitShirt));
     }
 
     @Test
     public void givenTwoShirtsLowerToFirstShouldBeTheLast() {
         // Arrange
-        Closet closet = new Closet();
         Shirt slimFitShirt = new Shirt("Slim fit");
         Shirt oxfordShirt = new Shirt("Oxford");
         // Act
-        closet.add(slimFitShirt);
-        closet.add(oxfordShirt);
+        shirtsBar.add(slimFitShirt);
+        shirtsBar.add(oxfordShirt);
         //Assert
-        assertThat(closet.getNumberOfShirts(), is(2));
-        Shirt first = closet.getFirstShirt().get();
-        Shirt last = closet.getLastShirt().get();
-        assertThat(closet.getShirts().tailSet(first, false).contains(last), is(true));
+        assertThat(shirtsBar.size(), is(2));
+        Shirt first = shirtsBar.getFirstShirt().get();
+        Shirt last = shirtsBar.getLastShirt().get();
+        assertThat(shirtsBar.getShirts().tailSet(first, false).contains(last), is(true));
     }
 
     @Test
     public void givenTwoShirtsHigherToLastShouldBeTheFirst() {
         // Arrange
-        Closet closet = new Closet();
         Shirt slimFitShirt = new Shirt("Slim fit");
         Shirt oxfordShirt = new Shirt("Oxford");
         // Act
-        closet.add(slimFitShirt);
-        closet.add(oxfordShirt);
+        shirtsBar.add(slimFitShirt);
+        shirtsBar.add(oxfordShirt);
         //Assert
-        assertThat(closet.getNumberOfShirts(), is(2));
-        Shirt first = closet.getFirstShirt().get();
-        Shirt last = closet.getLastShirt().get();
-        assertThat(closet.getShirts().headSet(last, false).contains(first), is(true));
+        assertThat(shirtsBar.size(), is(2));
+        Shirt first = shirtsBar.getFirstShirt().get();
+        Shirt last = shirtsBar.getLastShirt().get();
+        assertThat(shirtsBar.getShirts().headSet(last, false).contains(first), is(true));
     }
 }

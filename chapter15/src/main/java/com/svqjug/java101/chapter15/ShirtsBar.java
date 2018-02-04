@@ -18,7 +18,9 @@ public class ShirtsBar {
 	}
 
 	public void add(Shirt shirt) {
-		shirts.add(shirt);
+        if (shirt != null) {
+            shirts.add(shirt);
+        }
 	}
 
 	public boolean contains(Shirt shirt) {

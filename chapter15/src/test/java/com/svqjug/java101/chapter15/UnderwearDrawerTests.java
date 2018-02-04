@@ -1,5 +1,6 @@
 package com.svqjug.java101.chapter15;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -7,101 +8,100 @@ import static org.junit.Assert.assertThat;
 
 public class UnderwearDrawerTests {
 
+    private UnderwearDrawer underwearDrawer;
+
+    @Before
+    public void setUp() {
+        underwearDrawer = new UnderwearDrawer();
+    }
+
     @Test
     public void givenNewClosetUnderwerDrawerShouldBeEmpty() {
         // Arrange
-        Closet closet = new Closet();
         // Act
-
         // Assert
-        assertThat(closet.getNumberOfUnderwearPieces(), is(0));
+        assertThat(underwearDrawer.getNumberOfUnderwearPieces(), is(0));
     }
 
     @Test
     public void givenOneUnderwearPieceShouldContainIt() {
         // Arrange
-        Closet closet = new Closet();
         Underwear underwear = new Underwear("good one");
         // Act
-        closet.add(underwear);
+        underwearDrawer.add(underwear);
         // Assert
-        assertThat(closet.getNumberOfUnderwearPieces(), is(1));
-        assertThat(closet.contains(underwear), is(true));
+        assertThat(underwearDrawer.getNumberOfUnderwearPieces(), is(1));
+        assertThat(underwearDrawer.contains(underwear), is(true));
     }
 
     @Test
     public void givenTheSameUnderwearPieceTwoTimesShouldContainItTwoTimes() {
         // Arrange
-        Closet closet = new Closet();
         Underwear underwear = new Underwear("good ones");
         // Act
-        closet.add(underwear);
-        closet.add(underwear);
+        underwearDrawer.add(underwear);
+        underwearDrawer.add(underwear);
         // Assert
-        assertThat(closet.getNumberOfUnderwearPieces(), is(2));
-        assertThat(closet.contains(underwear), is(true));
+        assertThat(underwearDrawer.getNumberOfUnderwearPieces(), is(2));
+        assertThat(underwearDrawer.contains(underwear), is(true));
     }
 
     @Test
     public void givenTwoUnderwearPiecesShouldContainThem() {
         // Arrange
-        Closet closet = new Closet();
         Underwear goodOne = new Underwear("good one");
         Underwear badOne = new Underwear("bad one");
         // Act
-        closet.add(goodOne);
-        closet.add(badOne);
+        underwearDrawer.add(goodOne);
+        underwearDrawer.add(badOne);
         // Assert
-        assertThat(closet.getNumberOfUnderwearPieces(), is(2));
-        assertThat(closet.contains(goodOne), is(true));
-        assertThat(closet.contains(badOne), is(true));
+        assertThat(underwearDrawer.getNumberOfUnderwearPieces(), is(2));
+        assertThat(underwearDrawer.contains(goodOne), is(true));
+        assertThat(underwearDrawer.contains(badOne), is(true));
     }
 
     @Test
     public void givenThreeUnderwearPiecesShouldAccessThemByIndex() {
         // Arrange
-        Closet closet = new Closet();
         Underwear firstOne = new Underwear("first");
         Underwear secondOne = new Underwear("second");
         Underwear thirdOne = new Underwear("third");
         // Act
-        closet.add(firstOne);
-        closet.add(secondOne);
-        closet.add(thirdOne);
+        underwearDrawer.add(firstOne);
+        underwearDrawer.add(secondOne);
+        underwearDrawer.add(thirdOne);
         // Assert
-        assertThat(closet.getNumberOfUnderwearPieces(), is(3));
-        assertThat(closet.getUnderwearPiece(0).get(), is(firstOne));
-        assertThat(closet.getUnderwearPiece(1).get(), is(secondOne));
-        assertThat(closet.getUnderwearPiece(2).get(), is(thirdOne));
+        assertThat(underwearDrawer.getNumberOfUnderwearPieces(), is(3));
+        assertThat(underwearDrawer.get(0).get(), is(firstOne));
+        assertThat(underwearDrawer.get(1).get(), is(secondOne));
+        assertThat(underwearDrawer.get(2).get(), is(thirdOne));
     }
 
     @Test
     public void givenNotValidPositionShouldReturnNothing() {
         // Arrange
-        Closet closet = new Closet();
         Underwear firstOne = new Underwear("first");
         // Act
-        closet.add(firstOne);
+        underwearDrawer.add(firstOne);
         // Assert
-        assertThat(closet.getNumberOfUnderwearPieces(), is(1));
-        assertThat(closet.getUnderwearPiece(closet.getNumberOfUnderwearPieces()).isPresent(), is(false));
+        assertThat(underwearDrawer.getNumberOfUnderwearPieces(), is(1));
+        assertThat(underwearDrawer.get(underwearDrawer.getNumberOfUnderwearPieces()).isPresent(), is(false));
     }
 
     @Test
     public void givenTwoUnderwearPiecesShouldInsertOneInTheMiddleByPosition() {
         // Arrange
-        Closet closet = new Closet();
         Underwear firstOne = new Underwear("first");
         Underwear secondOne = new Underwear("second");
         Underwear thirdOne = new Underwear("third");
         // Act
-        closet.add(firstOne);
-        closet.add(secondOne);
-        closet.add(thirdOne, 1);
+        underwearDrawer.add(firstOne);
+        underwearDrawer.add(secondOne);
+        underwearDrawer.add(thirdOne, 1);
         // Assert
-        assertThat(closet.getNumberOfUnderwearPieces(), is(3));
-        assertThat(closet.getUnderwearPiece(0).get(), is(firstOne));
-        assertThat(closet.getUnderwearPiece(1).get(), is(thirdOne));
-        assertThat(closet.getUnderwearPiece(2).get(), is(secondOne));
+        assertThat(underwearDrawer.getNumberOfUnderwearPieces(), is(3));
+        assertThat(underwearDrawer.get(0).get(), is(firstOne));
+        assertThat(underwearDrawer.get(1).get(), is(thirdOne));
+        assertThat(underwearDrawer.get(2).get(), is(secondOne));
     }
 }

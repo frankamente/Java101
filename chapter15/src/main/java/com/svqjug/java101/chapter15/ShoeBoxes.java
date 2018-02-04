@@ -16,11 +16,18 @@ public class ShoeBoxes {
 	}
 
 	public void add(ShoeBox box) {
-		boxes.add(box);
+        if (box != null) {
+            boxes.add(box);
+        }
 	}
 
 	public boolean contains(ShoeBox box) {
 		return boxes.contains(box);
 	}
 
+    public void remove(ShoeBox box) {
+        if (box != null && box != null) {
+            boxes.remove(box);
+        }
+    }
 }
