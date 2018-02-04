@@ -16,7 +16,7 @@ public class ShoeBoxesTests {
     }
 
 	@Test
-    public void givenNewClosetShoeBoxesShouldBeEmpty() {
+    public void givenNewShoeBoxesShouldBeEmpty() {
 		// Arrange
 		// Act
 		// Assert
@@ -58,6 +58,31 @@ public class ShoeBoxesTests {
         assertThat(shoeBoxes.contains(box), is(false));
     }
 
+    @Test
+    public void givenOneShoeBoxRemoveNullShouldDoNothing() {
+        //Arrange
+        ShoeBox box = new ShoeBox("NB");
+        //Act
+        shoeBoxes.add(box);
+        shoeBoxes.remove(null);
+        //Assert
+        assertThat(shoeBoxes.size(), is(1));
+        assertThat(shoeBoxes.contains(box), is(true));
+    }
+
+    @Test
+    public void givenOneShoeBoxRemoveAnotherOneShouldDoNothing() {
+        //Arrange
+        ShoeBox box = new ShoeBox("NB");
+        ShoeBox clarksBox = new ShoeBox("Clarks");
+        //Act
+        shoeBoxes.add(box);
+        shoeBoxes.remove(clarksBox);
+        //Assert
+        assertThat(shoeBoxes.size(), is(1));
+        assertThat(shoeBoxes.contains(box), is(true));
+    }
+
 	@Test
 	public void givenTwoShoeBoxesShouldContainThem() {
 		// Arrange
@@ -71,6 +96,22 @@ public class ShoeBoxesTests {
         assertThat(shoeBoxes.contains(nbBox), is(true));
         assertThat(shoeBoxes.contains(clarksBox), is(true));
 	}
+
+    @Test
+    public void givenTwoShoeBoxesRemovingOneShouldLeftTheOther() {
+        // Arrange
+        ShoeBox nbBox = new ShoeBox("NB");
+        ShoeBox clarksBox = new ShoeBox("Clarks");
+        // Act
+        shoeBoxes.add(nbBox);
+        shoeBoxes.add(clarksBox);
+        assertThat(shoeBoxes.size(), is(2));
+        shoeBoxes.remove(nbBox);
+        // Assert
+        assertThat(shoeBoxes.size(), is(1));
+        assertThat(shoeBoxes.contains(nbBox), is(false));
+        assertThat(shoeBoxes.contains(clarksBox), is(true));
+    }
 
 	@Test
 	public void givenNullShoeBoxShouldDoNothing() {

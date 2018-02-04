@@ -16,7 +16,7 @@ public class UnderwearDrawerTests {
     }
 
     @Test
-    public void givenNewClosetUnderwerDrawerShouldBeEmpty() {
+    public void givenNewNewUnderwerDrawerShouldBeEmpty() {
         // Arrange
         // Act
         // Assert
@@ -43,6 +43,20 @@ public class UnderwearDrawerTests {
         underwearDrawer.add(underwear);
         // Assert
         assertThat(underwearDrawer.getNumberOfUnderwearPieces(), is(2));
+        assertThat(underwearDrawer.contains(underwear), is(true));
+    }
+
+    @Test
+    public void givenTheSameUnderwearPieceTwoTimesRemoveShouldRemoveOne() {
+        // Arrange
+        Underwear underwear = new Underwear("good ones");
+        // Act
+        underwearDrawer.add(underwear);
+        underwearDrawer.add(underwear);
+        assertThat(underwearDrawer.getNumberOfUnderwearPieces(), is(2));
+        underwearDrawer.remove(underwear);
+        // Assert
+        assertThat(underwearDrawer.getNumberOfUnderwearPieces(), is(1));
         assertThat(underwearDrawer.contains(underwear), is(true));
     }
 
@@ -103,5 +117,19 @@ public class UnderwearDrawerTests {
         assertThat(underwearDrawer.get(0).get(), is(firstOne));
         assertThat(underwearDrawer.get(1).get(), is(thirdOne));
         assertThat(underwearDrawer.get(2).get(), is(secondOne));
+    }
+
+    @Test
+    public void givenTwoUnderwearPiecesShouldRemoveOneOneByPosition() {
+        // Arrange
+        Underwear firstOne = new Underwear("first");
+        Underwear secondOne = new Underwear("second");
+        // Act
+        underwearDrawer.add(firstOne);
+        underwearDrawer.add(secondOne);
+        underwearDrawer.remove(0);
+        // Assert
+        assertThat(underwearDrawer.getNumberOfUnderwearPieces(), is(1));
+        assertThat(underwearDrawer.get(0).get(), is(secondOne));
     }
 }

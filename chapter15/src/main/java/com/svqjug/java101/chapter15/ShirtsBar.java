@@ -50,4 +50,10 @@ public class ShirtsBar {
     public NavigableSet<Shirt> getShirts() {
         return Collections.unmodifiableNavigableSet(shirts);
     }
+
+    public void remove(Shirt shirt) {
+        if (shirt != null && shirts.contains(shirt)) {
+            shirts.remove(shirt);
+        }
+    }
 }

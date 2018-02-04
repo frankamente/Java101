@@ -37,4 +37,16 @@ public class UnderwearDrawer implements Drawer {
             underwearPieces.add(position, underwear);
         }
     }
+
+    public void remove(int position) {
+        if (position > -1 && position < underwearPieces.size()) {
+            underwearPieces.remove(position);
+        }
+    }
+
+    public void remove(Underwear underwear) {
+        if (underwear != null && underwearPieces.contains(underwear)) {
+            underwearPieces.remove(underwear);
+        }
+    }
 }

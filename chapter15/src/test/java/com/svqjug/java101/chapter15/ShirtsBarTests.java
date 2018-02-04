@@ -18,7 +18,7 @@ public class ShirtsBarTests {
     }
 
 	@Test
-    public void givenNewClosetShirtsBarShouldBeEmpty() {
+    public void givenNewShirtsBarShouldBeEmpty() {
 		// Arrange
 		// Act
 		// Assert
@@ -47,6 +47,44 @@ public class ShirtsBarTests {
         assertThat(shirtsBar.size(), is(1));
         assertThat(shirtsBar.contains(shirt), is(true));
 	}
+
+    @Test
+    public void givenOneShirtRemoveShouldDeleteIt() {
+        //Arrange
+        Shirt shirt = new Shirt("Oxford");
+        //Act
+        shirtsBar.add(shirt);
+        assertThat(shirtsBar.size(), is(1));
+        shirtsBar.remove(shirt);
+        //Assert
+        assertThat(shirtsBar.size(), is(0));
+        assertThat(shirtsBar.contains(shirt), is(false));
+    }
+
+    @Test
+    public void givenOneShirtRemoveNullShouldDoNothing() {
+        //Arrange
+        Shirt shirt = new Shirt("Oxford");
+        //Act
+        shirtsBar.add(shirt);
+        shirtsBar.remove(null);
+        //Assert
+        assertThat(shirtsBar.size(), is(1));
+        assertThat(shirtsBar.contains(shirt), is(true));
+    }
+
+    @Test
+    public void givenOneShirtRemoveAnotherOneShouldDoNothing() {
+        //Arrange
+        Shirt oxfordShirt = new Shirt("Oxford");
+        Shirt slimFitShirt = new Shirt("Slim fit");
+        //Act
+        shirtsBar.add(oxfordShirt);
+        shirtsBar.remove(slimFitShirt);
+        //Assert
+        assertThat(shirtsBar.size(), is(1));
+        assertThat(shirtsBar.contains(oxfordShirt), is(true));
+    }
 
 	@Test
 	public void givenTwoShirtsShouldContainThem() {
@@ -85,6 +123,22 @@ public class ShirtsBarTests {
         assertThat(shirtsBar.size(), is(1));
         assertThat(shirtsBar.contains(oxfordShirt1), is(true));
         assertThat(shirtsBar.contains(oxfordShirt2), is(true));
+    }
+
+    @Test
+    public void givenTwoShirtsRemovingOneShouldLeftTheOther() {
+        // Arrange
+        Shirt oxfordShirt = new Shirt("Oxford");
+        Shirt slimFitShirt = new Shirt("Slim fit");
+        // Act
+        shirtsBar.add(oxfordShirt);
+        shirtsBar.add(slimFitShirt);
+        assertThat(shirtsBar.size(), is(2));
+        shirtsBar.remove(oxfordShirt);
+        // Assert
+        assertThat(shirtsBar.size(), is(1));
+        assertThat(shirtsBar.contains(oxfordShirt), is(false));
+        assertThat(shirtsBar.contains(slimFitShirt), is(true));
     }
 
     @Test
