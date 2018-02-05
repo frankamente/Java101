@@ -16,7 +16,7 @@ public class SocksDrawerTests {
 	public void setUp() {
 		socksDrawer = new SocksDrawer();
 	}
-/*
+
 	@Test
 	public void givenNewShirtsBarShouldBeEmpty() {
 		// Arrange
@@ -99,5 +99,5 @@ public class SocksDrawerTests {
 		// Assert
 		assertThat(pairRemoved.isPresent(), is(false));
 	}
-	*/
+
 }
