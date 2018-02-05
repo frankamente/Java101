@@ -16,7 +16,7 @@ public class ShirtsBarTests {
     public void setUp() {
         shirtsBar = new ShirtsBar();
     }
-/*
+
 	@Test
     public void givenNewShirtsBarShouldBeEmpty() {
 		// Arrange
@@ -204,5 +204,5 @@ public class ShirtsBarTests {
         Shirt last = shirtsBar.getLastShirt().get();
         assertThat(shirtsBar.getShirts().headSet(last, false).contains(first), is(true));
     }
-    */
+
 }
