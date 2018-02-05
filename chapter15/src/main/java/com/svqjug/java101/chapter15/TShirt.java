@@ -1,10 +1,11 @@
 package com.svqjug.java101.chapter15;
 
-public class Underwear {
+public class TShirt {
 
 	private String description;
 
-	public Underwear(String description) {
+	public TShirt(String description) {
+		super();
 		this.description = description;
 	}
 
@@ -35,7 +36,7 @@ public class Underwear {
 		if (getClass() != obj.getClass()) {
 			return false;
 		}
-		Underwear other = (Underwear) obj;
+		TShirt other = (TShirt) obj;
 		if (description == null) {
 			if (other.description != null) {
 				return false;
